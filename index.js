@@ -1,4 +1,3 @@
-
 var dif = ''
 var input
 var mul = 10
@@ -12,13 +11,10 @@ var game = ()=>{
             dif = this.value
             if (dif == 'normal') {
                 mul = 50
-                random = Math.floor(Math.random() * mul)
             }else if(dif == 'hard'){
                 mul = 100
-                random = Math.floor(Math.random() * mul)
-            }else{
-                random = Math.floor(Math.random() * mul)
             }
+            random = Math.floor(Math.random() * mul) + 1
             removeRadio()
             addInput()
             valid()
@@ -27,12 +23,14 @@ var game = ()=>{
 }
 
 var removeRadio = ()=>{
-    document.getElementById('easy').nextElementSibling.remove()
-    document.getElementById('easy').remove()
-    document.getElementById('normal').nextElementSibling.remove()
-    document.getElementById('normal').remove()
-    document.getElementById('hard').nextElementSibling.remove()
-    document.getElementById('hard').remove()
+    removeElmAndNextElem('easy')
+    removeElmAndNextElem('normal')
+    removeElmAndNextElem('hard')
+}
+
+var removeElmAndNextElem = (elm) => {
+    document.getElementById(elm).nextElementSibling.remove()
+    document.getElementById(elm).remove()
 }
 
 var addInput = ()=>{
@@ -52,7 +50,7 @@ var valid = ()=>{
 var check = (valInput, numberRandom)=>{
     if (nbTentative - 1 <= 0) {
         document.getElementById('p1').textContent = 'game over'
-        document.getElementById('input').remove()
+        input.remove()
     }else{
         if (valInput == numberRandom) {
             document.getElementById('p1').textContent = 'gagné!!'
@@ -74,5 +72,4 @@ var addHistoric = (val)=>{
     var p = document.getElementById('p2')
     p.textContent += val + ", "
 }
-
 game()
