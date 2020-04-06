@@ -3,7 +3,6 @@ var dif = ''
 var input
 var mul = 10
 var random
-var his = []
 var container = document.getElementById('container')
 var nbTentative = 10
 var game = ()=>{
