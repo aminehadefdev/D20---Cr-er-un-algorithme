@@ -16,6 +16,8 @@ var game = ()=>{
             }else if(dif == 'hard'){
                 mul = 100
                 random = Math.floor(Math.random() * mul)
+            }else{
+                random = Math.floor(Math.random() * mul)
             }
             removeRadio()
             addInput()
@@ -53,7 +55,7 @@ var check = (valInput, numberRandom)=>{
         document.getElementById('input').remove()
     }else{
         if (valInput == numberRandom) {
-            document.getElementById('p1').textContent = 'gagnier!!'
+            document.getElementById('p1').textContent = 'gagné!!'
         }else if(valInput < numberRandom){
             document.getElementById('p1').textContent = 'trop petit'
             input.value = ''
